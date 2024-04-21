@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:muslim_soul/features/audio/presentation/audio_view.dart';
+import 'package:muslim_soul/features/audio/presentation/views/audio_view.dart';
 import 'package:muslim_soul/features/home/presentation/views/home_view.dart';
-import 'package:muslim_soul/features/prayer/presentation/prayer_view.dart';
-import 'package:muslim_soul/features/quran/presentation/quran_view.dart';
+import 'package:muslim_soul/features/prayer/presentation/views/prayer_view.dart';
+import 'package:muslim_soul/features/quran/presentation/views/quran_view.dart';
 
 import 'widgets/custom_bottom_navigation_bar.dart';
 

@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:muslim_soul/core/utils/assets.dart';
 
-import '../../../../constants.dart';
-import '../../../../core/utils/app_router.dart';
+import '../../../../../constants.dart';
+import '../../../../../core/utils/app_router.dart';
 
 class OnboardingViewBody extends StatelessWidget {
   const OnboardingViewBody({super.key});

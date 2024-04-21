@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:muslim_soul/features/onboarding/presentation/widgets/onboarding_view_body.dart';
+import 'package:muslim_soul/features/onboarding/presentation/views/widgets/onboarding_view_body.dart';
 
 class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});

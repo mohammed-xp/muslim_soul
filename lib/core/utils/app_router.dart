@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
-import 'package:muslim_soul/features/main/presentation/main_view.dart';
-import 'package:muslim_soul/features/onboarding/presentation/onboarding_view.dart';
+import 'package:muslim_soul/features/main/presentation/views/main_view.dart';
+import 'package:muslim_soul/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:muslim_soul/features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRouter {

@@ -1,8 +1,8 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../constants.dart';
-import '../../../../core/utils/assets.dart';
+import '../../../../../constants.dart';
+import '../../../../../core/utils/assets.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   const CustomBottomNavigationBar({super.key, required this.updateIndex});
