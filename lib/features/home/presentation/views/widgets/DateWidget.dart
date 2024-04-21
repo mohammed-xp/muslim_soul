@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:muslim_soul/features/home/presentation/menegar/aya_of_day_cubit/aya_of_day_state.dart';
 
 import '../../../../../core/utils/assets.dart';
 import '../../menegar/aya_of_day_cubit/aya_of_day_cubit.dart';
@@ -23,7 +24,8 @@ class DateWidget extends StatelessWidget {
           ),
         ),
       ),
-      child: BlocBuilder(builder: (context, state) {
+      child:
+          BlocBuilder<AyaOfDayCubit, AyaOfDayState>(builder: (context, state) {
         var cubit = BlocProvider.of<AyaOfDayCubit>(context);
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,

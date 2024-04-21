@@ -12,7 +12,9 @@ class HomeView extends StatelessWidget {
         body: Column(
           children: [
             DateWidget(),
-            AyaOfTheDayWidget(),
+            Expanded(
+              child: AyaOfTheDayWidget(),
+            ),
           ],
         ),
       ),
