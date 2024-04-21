@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:intl/intl.dart';
+import 'package:muslim_soul/constants.dart';
+import 'package:muslim_soul/core/network/local/cache_helper.dart';
 import 'package:muslim_soul/features/home/data/repos/home_repo.dart';
 import 'package:muslim_soul/features/home/presentation/menegar/aya_of_day_cubit/aya_of_day_state.dart';
 
@@ -8,6 +10,13 @@ class AyaOfDayCubit extends Cubit<AyaOfDayState> {
   AyaOfDayCubit(this.homeRepo) : super(AyaOfDayInitial());
 
   final HomeRepo homeRepo;
+
+  void init() async {
+    await CacheHelper.setData(
+      key: Constants.kShowOnboarding,
+      value: true,
+    );
+  }
 
   final hijri = HijriCalendar.now();
   // HijriCalendar.setLocal('ar');

@@ -18,4 +18,6 @@ class Constants {
       900: Color(0xffffffff), //100%
     },
   );
+
+  static const String kShowOnboarding = 'showOnboarding';
 }

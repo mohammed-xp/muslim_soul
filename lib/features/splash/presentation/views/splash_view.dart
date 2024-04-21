@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:muslim_soul/constants.dart';
+import 'package:muslim_soul/core/network/local/cache_helper.dart';
 import 'package:muslim_soul/core/utils/app_router.dart';
 import 'package:muslim_soul/core/utils/assets.dart';
 
@@ -16,9 +18,11 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
+    String nextScreen = getNextScreen();
+
     Timer(
       const Duration(seconds: 3),
-      () => GoRouter.of(context).pushReplacement(AppRouter.kOnboardingView),
+      () => GoRouter.of(context).pushReplacement(nextScreen),
     );
   }
 
@@ -47,5 +51,15 @@ class _SplashViewState extends State<SplashView> {
         ),
       ),
     );
+  }
+
+  String getNextScreen() {
+    final bool isShowedOnboarding =
+        CacheHelper.getData(key: Constants.kShowOnboarding) ?? false;
+    if (isShowedOnboarding) {
+      return AppRouter.kMainView;
+    } else {
+      return AppRouter.kOnboardingView;
+    }
   }
 }

@@ -1,7 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:muslim_soul/features/main/presentation/main_view.dart';
 import 'package:muslim_soul/features/onboarding/presentation/onboarding_view.dart';
-import 'package:muslim_soul/features/splash/presentation/splash_view.dart';
+import 'package:muslim_soul/features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRouter {
   static const kMainView = '/mainView';
@@ -10,7 +10,7 @@ abstract class AppRouter {
   static final router = GoRouter(
     routes: [
       GoRoute(
-        path: '/s',
+        path: '/',
         builder: (context, state) => const SplashView(),
       ),
       GoRoute(
@@ -18,7 +18,7 @@ abstract class AppRouter {
         builder: (context, state) => const OnBoardingView(),
       ),
       GoRoute(
-        path: '/',
+        path: kMainView,
         builder: (context, state) => const MainView(),
       ),
     ],
