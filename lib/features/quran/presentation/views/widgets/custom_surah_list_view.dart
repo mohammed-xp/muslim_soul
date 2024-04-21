@@ -10,14 +10,36 @@ class CustomSurahListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: allSurah.data?.length ?? 0,
-      itemBuilder: (context, index) {
-        var surah = allSurah.data?[index];
-        return CustomSurahListViewItem(
-          surah: surah,
-        );
-      },
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
+      shrinkWrap: false,
+      slivers: [
+        SliverList.builder(
+          // physics: const BouncingScrollPhysics(),
+          itemCount: allSurah.data?.length ?? 0,
+          itemBuilder: (context, index) {
+            var surah = allSurah.data?[index];
+            return CustomSurahListViewItem(
+              surah: surah,
+            );
+          },
+        ),
+        const SliverToBoxAdapter(
+          child: SizedBox(
+            height: 28,
+          ),
+        ),
+      ],
+      // child: ListView.builder(
+      //   physics: const BouncingScrollPhysics(),
+      //   itemCount: allSurah.data?.length ?? 0,
+      //   itemBuilder: (context, index) {
+      //     var surah = allSurah.data?[index];
+      //     return CustomSurahListViewItem(
+      //       surah: surah,
+      //     );
+      //   },
+      // ),
     );
   }
 }
