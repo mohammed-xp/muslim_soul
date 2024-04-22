@@ -15,7 +15,13 @@ class QuranView extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Constants.kPrimary,
-            title: const Text('Quran'),
+            title: const Text(
+              'Quran',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             centerTitle: true,
             bottom: const TabBar(
               indicatorColor: Colors.white,
