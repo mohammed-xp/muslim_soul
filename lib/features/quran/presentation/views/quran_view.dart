@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:muslim_soul/constants.dart';
+import 'package:muslim_soul/features/quran/presentation/views/widgets/juz_body.dart';
 import 'package:muslim_soul/features/quran/presentation/views/widgets/surah_body.dart';
 
 class QuranView extends StatelessWidget {
@@ -50,7 +51,7 @@ class QuranView extends StatelessWidget {
             children: [
               SurahBody(),
               Center(child: Text('Sajda')),
-              Center(child: Text('Juz')),
+              JuzBody(),
             ],
           ),
         ),

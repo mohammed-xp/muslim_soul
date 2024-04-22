@@ -6,6 +6,7 @@ import 'package:muslim_soul/core/utils/service_locator.dart';
 import 'package:muslim_soul/features/home/data/repos/home_repo_impl.dart';
 import 'package:muslim_soul/features/home/presentation/menegar/aya_of_day_cubit/aya_of_day_cubit.dart';
 import 'package:muslim_soul/features/quran/data/repos/quran_repo_impl.dart';
+import 'package:muslim_soul/features/quran/presentation/menegare/juz_cubit/juz_cubit.dart';
 import 'package:muslim_soul/features/quran/presentation/menegare/surah_cubit/surah_cubit.dart';
 
 import 'core/utils/app_router.dart';
@@ -33,6 +34,11 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) =>
               SurahCubit(getIt.get<QuranRepoImpl>())..getAllSurah(),
+        ),
+        BlocProvider(
+          create: (context) => JuzCubit(
+            getIt.get<QuranRepoImpl>(),
+          ),
         ),
       ],
       child: MaterialApp.router(

@@ -7,7 +7,7 @@ class ApiServices {
 
   final String _baseUrl = 'http://api.alquran.cloud/v1/';
 
-  Future<Map<String, dynamic>> getAyaOfDay({
+  Future<Map<String, dynamic>> get({
     required String endPoint,
   }) async {
     var response = await dio.get('$_baseUrl$endPoint');
