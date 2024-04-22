@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:muslim_soul/features/quran/data/models/surah_model/datum.dart';
 
 class SurahListViewItem extends StatelessWidget {
   const SurahListViewItem({

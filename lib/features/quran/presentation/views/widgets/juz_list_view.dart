@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:muslim_soul/features/quran/presentation/views/widgets/surah_list_view_item.dart';
 
 import '../../../data/models/juz_model/ayah.dart';
-import 'juz_list_view_item.dart';
 
 class JuzListView extends StatelessWidget {
   const JuzListView({
