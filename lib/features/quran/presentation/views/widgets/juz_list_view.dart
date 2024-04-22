@@ -25,6 +25,7 @@ class JuzListView extends StatelessWidget {
             surahEnglishName: surah.surah?.englishName ?? '-----',
             numberOfAyahs: surah.surah?.numberOfAyahs.toString() ?? '---',
             surahName: surah.surah?.name ?? '-----',
+            onTap: () {},
           ),
         );
       },

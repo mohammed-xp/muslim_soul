@@ -24,6 +24,7 @@ class CustomSurahListView extends StatelessWidget {
               surahEnglishName: surah?.englishName ?? '-----',
               numberOfAyahs: surah?.numberOfAyahs.toString() ?? '---',
               surahName: surah?.name ?? '-----',
+              onTap: () {},
             );
           },
         ),

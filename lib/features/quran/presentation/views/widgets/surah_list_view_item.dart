@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 class SurahListViewItem extends StatelessWidget {
   const SurahListViewItem({
     super.key,
+    required this.onTap,
     required this.surahNumber,
     required this.surahEnglishName,
     required this.numberOfAyahs,
     required this.surahName,
   });
 
+  final void Function()? onTap;
   final String surahNumber;
   final String surahEnglishName;
   final String numberOfAyahs;
@@ -17,7 +19,7 @@ class SurahListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: const BoxDecoration(
