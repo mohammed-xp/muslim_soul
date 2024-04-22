@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:muslim_soul/features/quran/data/models/surah_model/datum.dart';
 
-class CustomSurahListViewItem extends StatelessWidget {
-  const CustomSurahListViewItem({super.key, required this.surah});
-  final Datum? surah;
+class SurahListViewItem extends StatelessWidget {
+  const SurahListViewItem({
+    super.key,
+    required this.surahNumber,
+    required this.surahEnglishName,
+    required this.numberOfAyahs,
+    required this.surahName,
+  });
+
+  final String surahNumber;
+  final String surahEnglishName;
+  final String numberOfAyahs;
+  final String surahName;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +35,7 @@ class CustomSurahListViewItem extends StatelessWidget {
                 color: Colors.black38,
               ),
               child: Text(
-                surah?.number.toString() ?? '--',
+                surahNumber,
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -40,19 +50,22 @@ class CustomSurahListViewItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  surah?.englishName ?? '-----',
+                  surahEnglishName,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
-                  surah?.englishNameTranslation ?? '-----',
+                  '$numberOfAyahs  ayah',
+                  style: const TextStyle(
+                    color: Colors.black54,
+                  ),
                 ),
               ],
             ),
             const Spacer(),
             Text(
-              surah?.name ?? '----',
+              surahName,
               style: const TextStyle(
                 color: Colors.black54,
                 fontSize: 20,

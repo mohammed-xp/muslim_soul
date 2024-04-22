@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:muslim_soul/features/quran/presentation/views/widgets/custom_surah_list_view_item.dart';
+import 'package:muslim_soul/features/quran/presentation/views/widgets/surah_list_view_item.dart';
 
 import '../../../data/models/surah_model/surah_model.dart';
 
@@ -19,8 +19,11 @@ class CustomSurahListView extends StatelessWidget {
           itemCount: allSurah.data?.length ?? 0,
           itemBuilder: (context, index) {
             var surah = allSurah.data?[index];
-            return CustomSurahListViewItem(
-              surah: surah,
+            return SurahListViewItem(
+              surahNumber: surah?.number.toString() ?? '--',
+              surahEnglishName: surah?.englishName ?? '-----',
+              numberOfAyahs: surah?.numberOfAyahs.toString() ?? '---',
+              surahName: surah?.name ?? '-----',
             );
           },
         ),
