@@ -4,13 +4,22 @@ class ApiServices {
   ApiServices(this.dio);
 
   final Dio dio;
+// https://alquran.cloud/api
+  final String _baseAlquranCloudUrl = 'http://api.alquran.cloud/v1/';
+  // https://quranenc.com/ar/home#transes
+  final String _baseQuranencUrl = 'https://quranenc.com/api/v1/translation/';
 
-  final String _baseUrl = 'http://api.alquran.cloud/v1/';
-
-  Future<Map<String, dynamic>> get({
+  Future<Map<String, dynamic>> getFromQuranCloud({
     required String endPoint,
   }) async {
-    var response = await dio.get('$_baseUrl$endPoint');
+    var response = await dio.get('$_baseAlquranCloudUrl$endPoint');
+    return response.data;
+  }
+
+  Future<Map<String, dynamic>> getFromQuranenc({
+    required String endPoint,
+  }) async {
+    var response = await dio.get('$_baseQuranencUrl$endPoint');
     return response.data;
   }
 }

@@ -17,7 +17,7 @@ class HomeRepoImpl extends HomeRepo {
   Future<Either<Failure, AyaOfDayModel>> getAyaOfDay() async {
     try {
       // For random Aya we need to generate random number
-      var data = await apiService.get(
+      var data = await apiService.getFromQuranCloud(
         endPoint:
             'ayah/${random(1, 6236)}/editions/quran-uthmani,en.asad,en.pickthall',
       );
