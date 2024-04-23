@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:muslim_soul/features/audio/presentation/views/audio_view.dart';
+import 'package:muslim_soul/features/qari/presentation/views/qari_view.dart';
 import 'package:muslim_soul/features/main/presentation/views/main_view.dart';
 import 'package:muslim_soul/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:muslim_soul/features/quran/presentation/views/juz_view.dart';

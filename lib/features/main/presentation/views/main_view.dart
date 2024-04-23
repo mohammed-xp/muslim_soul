@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:muslim_soul/features/audio/presentation/views/audio_view.dart';
+import 'package:muslim_soul/features/qari/presentation/views/qari_view.dart';
 import 'package:muslim_soul/features/home/presentation/views/home_view.dart';
 import 'package:muslim_soul/features/prayer/presentation/views/prayer_view.dart';
 import 'package:muslim_soul/features/quran/presentation/views/quran_view.dart';
