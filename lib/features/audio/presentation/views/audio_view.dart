@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class QarisView extends StatelessWidget {
-  const QarisView({super.key});
+class QariView extends StatelessWidget {
+  const QariView({super.key});
 
   @override
   Widget build(BuildContext context) {

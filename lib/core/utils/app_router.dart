@@ -11,7 +11,7 @@ abstract class AppRouter {
   static const kOnboardingView = '/onboardingView';
   static const kJuzView = '/juzView';
   static const kSurahDetailsView = '/surahDetailsView';
-  static const kQarisView = '/qarisView';
+  static const kQariView = '/qariView';
 
   static final router = GoRouter(
     routes: [
@@ -36,8 +36,8 @@ abstract class AppRouter {
         builder: (context, state) => const SurahDetailsView(),
       ),
       GoRoute(
-        path: kQarisView,
-        builder: (context, state) => const QarisView(),
+        path: kQariView,
+        builder: (context, state) => const QariView(),
       ),
     ],
   );
