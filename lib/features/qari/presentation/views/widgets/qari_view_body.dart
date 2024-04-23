@@ -5,6 +5,8 @@ import 'package:muslim_soul/core/widgets/custom_loading.dart';
 import 'package:muslim_soul/features/qari/data/models/qaris_model/qaris_model.dart';
 import 'package:muslim_soul/features/qari/presentation/menegare/qaris_cubit/qaris_cubit.dart';
 
+import 'qari_list_view_item.dart';
+
 class QariViewBody extends StatelessWidget {
   const QariViewBody({super.key});
 
@@ -78,51 +80,6 @@ class QariViewBody extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class QariListViewItem extends StatelessWidget {
-  const QariListViewItem({super.key, required this.qari});
-
-  final QarisModel qari;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Container(
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.all(
-              Radius.circular(8),
-            ),
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 3,
-                spreadRadius: 0,
-                color: Colors.black12,
-                offset: Offset(0, 1),
-              ),
-            ],
-          ),
-          child: Column(
-            children: [
-              Text(
-                qari.name ?? '------',
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              )
-            ],
-          ),
-        ),
       ),
     );
   }
