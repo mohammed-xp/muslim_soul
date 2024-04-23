@@ -26,7 +26,6 @@ class QariRepoImpl extends QariRepo {
         qarisModel.add(QarisModel.fromJson(item));
       }
 
-      log(qarisModel.toString());
       return right(qarisModel);
     } catch (e) {
       if (e is DioException) {
