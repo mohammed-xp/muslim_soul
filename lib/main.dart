@@ -8,6 +8,7 @@ import 'package:muslim_soul/features/home/presentation/menegar/aya_of_day_cubit/
 import 'package:muslim_soul/features/quran/data/repos/quran_repo_impl.dart';
 import 'package:muslim_soul/features/quran/presentation/menegare/juz_cubit/juz_cubit.dart';
 import 'package:muslim_soul/features/quran/presentation/menegare/surah_cubit/surah_cubit.dart';
+import 'package:muslim_soul/features/quran/presentation/menegare/surah_details_cubit/surah_details_cubit.dart';
 
 import 'core/utils/app_router.dart';
 
@@ -37,6 +38,11 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => JuzCubit(
+            getIt.get<QuranRepoImpl>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => SurahDetailsCubit(
             getIt.get<QuranRepoImpl>(),
           ),
         ),

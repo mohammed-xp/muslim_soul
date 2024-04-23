@@ -7,6 +7,6 @@ import 'package:muslim_soul/features/quran/data/models/surah_model/surah_model.d
 abstract class QuranRepo {
   Future<Either<Failure, SurahModel>> getAllSurah();
   Future<Either<Failure, JuzModel>> getJuz({required int juzNumber});
-  Future<Either<Failure, SurahDetailsModel>> getSurah(
+  Future<Either<Failure, SurahDetailsModel>> getSurahDetails(
       {required int surahNumber});
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:muslim_soul/core/utils/app_router.dart';
 import 'package:muslim_soul/features/quran/presentation/views/widgets/surah_list_view_item.dart';
 
 import '../../../data/models/surah_model/surah_model.dart';
@@ -24,7 +26,9 @@ class CustomSurahListView extends StatelessWidget {
               surahEnglishName: surah?.englishName ?? '-----',
               numberOfAyahs: surah?.numberOfAyahs.toString() ?? '---',
               surahName: surah?.name ?? '-----',
-              onTap: () {},
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kSurahDetailsView);
+              },
             );
           },
         ),

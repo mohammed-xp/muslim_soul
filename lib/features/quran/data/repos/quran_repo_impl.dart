@@ -48,7 +48,7 @@ class QuranRepoImpl extends QuranRepo {
   }
 
   @override
-  Future<Either<Failure, SurahDetailsModel>> getSurah(
+  Future<Either<Failure, SurahDetailsModel>> getSurahDetails(
       {required int surahNumber}) async {
     try {
       var data = await apiServices.getFromQuranenc(
