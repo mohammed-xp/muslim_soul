@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:muslim_soul/features/audio/presentation/views/audio_view.dart';
 import 'package:muslim_soul/features/main/presentation/views/main_view.dart';
 import 'package:muslim_soul/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:muslim_soul/features/quran/presentation/views/juz_view.dart';
@@ -10,6 +11,7 @@ abstract class AppRouter {
   static const kOnboardingView = '/onboardingView';
   static const kJuzView = '/juzView';
   static const kSurahDetailsView = '/surahDetailsView';
+  static const kQarisView = '/qarisView';
 
   static final router = GoRouter(
     routes: [
@@ -32,6 +34,10 @@ abstract class AppRouter {
       GoRoute(
         path: kSurahDetailsView,
         builder: (context, state) => const SurahDetailsView(),
+      ),
+      GoRoute(
+        path: kQarisView,
+        builder: (context, state) => const QarisView(),
       ),
     ],
   );

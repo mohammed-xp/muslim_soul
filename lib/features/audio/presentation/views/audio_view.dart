@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AudioView extends StatelessWidget {
-  const AudioView({super.key});
+class QarisView extends StatelessWidget {
+  const QarisView({super.key});
 
   @override
   Widget build(BuildContext context) {

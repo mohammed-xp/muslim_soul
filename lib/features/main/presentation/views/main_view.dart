@@ -18,7 +18,7 @@ class _MainViewState extends State<MainView> {
   final List<Widget> _viewsList = [
     const HomeView(),
     const QuranView(),
-    const AudioView(),
+    const QarisView(),
     const PrayerView(),
   ];
 
