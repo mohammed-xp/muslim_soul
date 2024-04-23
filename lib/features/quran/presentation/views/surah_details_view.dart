@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:muslim_soul/constants.dart';
+import 'package:muslim_soul/core/widgets/custom_error_widget.dart';
+import 'package:muslim_soul/core/widgets/custom_loading.dart';
+import 'package:muslim_soul/features/quran/data/models/surah_details_model/result.dart';
+import 'package:muslim_soul/features/quran/presentation/menegare/surah_details_cubit/surah_details_cubit.dart';
+import 'package:muslim_soul/features/quran/presentation/views/widgets/surah_details_list_view.dart';
 
 class SurahDetailsView extends StatelessWidget {
   const SurahDetailsView({super.key});
@@ -10,9 +16,9 @@ class SurahDetailsView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Constants.kPrimary,
-        title: const Text(
-          'سورة الفاتحة',
-          style: TextStyle(color: Colors.white),
+        title: Text(
+          BlocProvider.of<SurahDetailsCubit>(context).title,
+          style: const TextStyle(color: Colors.white),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_rounded),
@@ -22,93 +28,28 @@ class SurahDetailsView extends StatelessWidget {
           },
         ),
       ),
-      body: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        itemCount: 7,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: const [
-                  BoxShadow(
-                    blurRadius: 1,
-                  ),
-                ],
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Stack(
-                    children: [
-                      Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(16),
-                        decoration: const BoxDecoration(
-                          color: Constants.kPrimary,
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(8),
-                            topRight: Radius.circular(8),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        top: -3,
-                        left: 12,
-                        child: Container(
-                          padding: const EdgeInsets.all(6),
-                          alignment: Alignment.center,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.black26,
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(2.0),
-                            child: Text(
-                              '1',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    child: const Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          'بسم الله الرحمن الرحيم',
-                          textAlign: TextAlign.end,
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                        ),
-                        Divider(),
-                        Text(
-                          'xxxxx xxxxx xxxx xx xxxxxx',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            ),
-          );
+      body: BlocBuilder<SurahDetailsCubit, SurahDetailsState>(
+        builder: (context, state) {
+          if (state is SurahDetailsSuccess) {
+            return SurahDetailsListView(
+              state: state,
+            );
+          } else if (state is SurahDetailsFailure) {
+            return CustomErrorWidget(
+              errMessage: state.errMessage,
+              onPressed: () {
+                var surahNumber =
+                    BlocProvider.of<SurahDetailsCubit>(context).surahNumber;
+                var title = BlocProvider.of<SurahDetailsCubit>(context).title;
+                BlocProvider.of<SurahDetailsCubit>(context).getSurahDetails(
+                  surahNumber: surahNumber,
+                  title: title,
+                );
+              },
+            );
+          } else {
+            return const CustomLoading();
+          }
         },
       ),
     );

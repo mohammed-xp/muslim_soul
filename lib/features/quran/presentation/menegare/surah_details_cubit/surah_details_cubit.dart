@@ -12,10 +12,18 @@ class SurahDetailsCubit extends Cubit<SurahDetailsState> {
 
   late int surahNumber;
 
-  Future<void> getSurahDetails() async {
+  String title = '';
+
+  Future<void> getSurahDetails({
+    required int surahNumber,
+    required String title,
+  }) async {
     emit(SurahDetailsLoading());
 
-    var result = await quranRepo.getSurahDetails(surahNumber: surahNumber);
+    this.surahNumber = surahNumber;
+    this.title = title;
+
+    var result = await quranRepo.getSurahDetails(surahNumber: this.surahNumber);
 
     result.fold(
       (failure) {
