@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:muslim_soul/constants.dart';
 import 'package:muslim_soul/core/widgets/custom_error_widget.dart';
 import 'package:muslim_soul/core/widgets/custom_loading.dart';
-import 'package:muslim_soul/features/quran/data/models/surah_details_model/result.dart';
 import 'package:muslim_soul/features/quran/presentation/menegare/surah_details_cubit/surah_details_cubit.dart';
 import 'package:muslim_soul/features/quran/presentation/views/widgets/surah_details_list_view.dart';
 
