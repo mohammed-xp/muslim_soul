@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:muslim_soul/core/widgets/custom_error_widget.dart';
+import 'package:muslim_soul/core/widgets/custom_loading.dart';
+import 'package:muslim_soul/features/qari/data/models/qaris_model/qaris_model.dart';
+import 'package:muslim_soul/features/qari/presentation/menegare/qaris_cubit/qaris_cubit.dart';
 
 class QariViewBody extends StatelessWidget {
   const QariViewBody({super.key});
@@ -47,10 +52,28 @@ class QariViewBody extends StatelessWidget {
             height: 20,
           ),
           Expanded(
-            child: ListView.builder(
-              itemCount: 10,
-              itemBuilder: (constxt, index) {
-                return const QariListViewItem();
+            child: BlocBuilder<QarisCubit, QarisState>(
+              builder: (context, state) {
+                if (state is QarisSuccess) {
+                  return ListView.builder(
+                    itemCount: state.qaris.length,
+                    itemBuilder: (constxt, index) {
+                      QarisModel qarisModel = state.qaris[index];
+                      return QariListViewItem(
+                        qari: qarisModel,
+                      );
+                    },
+                  );
+                } else if (state is QarisFailure) {
+                  return CustomErrorWidget(
+                    errMessage: state.errMessage,
+                    onPressed: () {
+                      BlocProvider.of<QarisCubit>(context).getQaris();
+                    },
+                  );
+                } else {
+                  return const CustomLoading();
+                }
               },
             ),
           ),
@@ -61,7 +84,9 @@ class QariViewBody extends StatelessWidget {
 }
 
 class QariListViewItem extends StatelessWidget {
-  const QariListViewItem({super.key});
+  const QariListViewItem({super.key, required this.qari});
+
+  final QarisModel qari;
 
   @override
   Widget build(BuildContext context) {
@@ -85,10 +110,10 @@ class QariListViewItem extends StatelessWidget {
               ),
             ],
           ),
-          child: const Column(
+          child: Column(
             children: [
               Text(
-                'Mohammed Adil Haroun Ali',
+                qari.name ?? '------',
                 textAlign: TextAlign.start,
                 style: TextStyle(
                   fontSize: 20,

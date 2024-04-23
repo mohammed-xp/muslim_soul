@@ -35,14 +35,6 @@ class QuranView extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Sajda',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 20,
-                  ),
-                ),
-                Text(
                   'Juz',
                   style: TextStyle(
                     color: Colors.white,
@@ -56,7 +48,6 @@ class QuranView extends StatelessWidget {
           body: const TabBarView(
             children: [
               SurahBody(),
-              Center(child: Text('Sajda')),
               JuzBody(),
             ],
           ),
